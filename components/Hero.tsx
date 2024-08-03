@@ -1,10 +1,39 @@
+import React from "react";
 import { FaLocationArrow } from "react-icons/fa6";
 
 import MagicButton from "./MagicButton";
 import { Spotlight } from "./ui/Spotlight";
 import { TextGenerateEffect } from "./ui/TextGenerateEffect";
+// import { companies } from "@/data";
 
 const Hero = () => {
+  const companies = [
+    {
+      id: 1,
+      name: "cloudinary",
+      img: "/cloud.svg",
+      nameImg: "/cloudName.svg",
+    },
+    {
+      id: 2,
+      name: "appwrite",
+      img: "/app.svg",
+      nameImg: "/appName.svg",
+    },
+    {
+      id: 3,
+      name: "HOSTINGER",
+      img: "/host.svg",
+      nameImg: "/hostName.svg",
+    },
+    {
+      id: 4,
+      name: "stream",
+      img: "/s.svg",
+      nameImg: "/streamName.svg",
+    },
+  ];
+
   return (
     <div className="pb-20 pt-36">
       {/**
@@ -56,6 +85,26 @@ const Hero = () => {
             className="text-center text-[40px] md:text-5xl lg:text-6xl"
           />
 
+          <div className="flex flex-wrap items-center justify-center gap-4 md:gap-16 max-lg:mt-10 mt-4 mb-8">
+            {companies.map((company) => (
+              <React.Fragment key={company.id}>
+                <div className="flex md:max-w-60 max-w-32 gap-2">
+                  <img
+                    src={company.img}
+                    alt={company.name}
+                    className="md:w-10 w-5"
+                  />
+                  <img
+                    src={company.nameImg}
+                    alt={company.name}
+                    width={company.id === 4 || company.id === 5 ? 100 : 150}
+                    className="md:w-24 w-20"
+                  />
+                </div>
+              </React.Fragment>
+            ))}
+          </div>
+
           <p className="text-center md:tracking-wider mb-4 text-sm md:text-lg lg:text-2xl">
             CHANGING POLLUTED PERCEPTION WITH GREEN PERSUATION MINUTES OF
             CHARGING, HOURS OF POWER BACKUP
@@ -63,7 +112,7 @@ const Hero = () => {
 
           <a href="#about">
             <MagicButton
-              title="Show my work"
+              title="See Our work"
               icon={<FaLocationArrow />}
               position="right"
             />
